@@ -1,0 +1,391 @@
+trim(fgets(STDIN));
+
+fscanf(STDIN,"%d %d",$a,$b);
+
+[$a, $b] = explode(' ', trim(fgets(STDIN)));
+
+---
+
+「二重ループメニュー」
+
+
+■ 二次元配列の行ごとの和
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__row_sum
+
+入力例1
+3 3
+1 2 3
+4 5 6
+7 8 9
+
+出力例1
+6
+
+15
+
+24
+
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    
+    fscanf(STDIN, "%d %d", $h, $w);
+    
+    // === ２次元配列作成   
+    for($i = 0; $i < $h; $i++) {
+        $arr[] = explode(" ", fgets(STDIN));
+    }
+    
+  // === ２次元配列の　行　の　和を求める
+   $arr_sum = [];    
+   for($i = 0; $i < $h; $i++) {
+       for($j = 0; $j < $w; $j++) {
+            $arr_sum[$i] += $arr[$i][$j];
+       }
+   }
+   
+   // === 出力
+   foreach($arr_sum as $a) {
+       print($a . "\n");
+   }
+   
+    
+?>
+
+
+■ 二次元配列の最大の要素
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__search_max
+
+入力例1
+3 3
+226 409 419
+491 524 82
+417 954 751
+
+出力例1
+954
+
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+   fscanf(STDIN, "%d %d", $h, $w);
+   
+   for($i = 0; $i < $h; $i++) {
+       $arr[] = explode(' ', trim(fgets(STDIN)));
+   }
+   
+   $ans = $arr[0][0];
+   
+  // === 最大値を入れる　全探索  配列の１番目の要素と比較して、それより大きい場合は ===
+  // 大きい要素を $ans に入れる。
+   for($i = 0; $i < $h; $i++) {
+       for($j = 0; $j < $w; $j++) {
+           if($ans < $arr[$i][$j]) {
+               $ans = $arr[$i][$j];
+           }
+       }
+   }
+   print($ans);
+?>
+
+
+■二次元配列での要素の検索
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__search
+
+入力例1
+4 3
+0 0 0
+0 0 0
+0 0 1
+0 0 0
+
+出力例1
+3 3
+
+
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    fscanf(STDIN, "%d %d", $h, $w);
+    
+   // === ２次元配列取得
+    for($i = 0; $i < $h; $i++) {
+        $arr[] = explode(' ', trim(fgets(STDIN)));
+    }
+    
+    $i_num = 0;
+    $j_num = 0;
+    
+    // ===２次元配列　出力
+    for($i = 0; $i < $h; $i++) {
+        for($j = 0; $j < $w; $j++) {
+            if($arr[$i][$j] == 1) {
+                $i_num = $i;
+                $j_num = $j;
+            }
+        }
+    }
+    
+    // === 1のある index  縦、　横　出力
+    print($i_num + 1 . " " . $j_num + 1);
+    
+?>
+
+
+■二次元配列の出力
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_map
+
+
+入力例1
+3 4
+92 15 49 19
+20 89 92 47
+0 87 42 45
+
+出力例1
+92 15 49 19
+
+20 89 92 47
+
+0 87 42 45
+
+
+・コード
+
+fscanf(STDIN, "%d %d", $h, $w);
+    
+    // === ２次元配列作成
+    for($i = 0; $i < $h; $i++) {
+        $arr[] = explode(' ', trim(fgets(STDIN)));
+    }
+    
+    // === ２次元配列　出力
+    for($i = 0; $i < $h; $i++) {
+        for($j = 0; $j < $w; $j++) {
+            if($j == $w - 1) {
+                print($arr[$i][$j] . "\n");
+            } else {
+                print($arr[$i][$j] . " ");
+            }
+           
+        }
+    }
+    
+    print_r($arr);
+
+Array
+(
+    [0] => Array
+        (
+            [0] => 92
+            [1] => 15
+            [2] => 49
+            [3] => 19
+        )
+    [1] => Array
+        (
+            [0] => 20
+            [1] => 89
+            [2] => 92
+            [3] => 47
+        )
+    [2] => Array
+        (
+            [0] => 0
+            [1] => 87
+            [2] => 42
+            [3] => 45
+
+        )
+)
+
+
+■指定された範囲・行数の数字の出力
+
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_range
+
+```
+N K
+```
+・ 1 行で整数 N , K が半角スペース区切りで与えられます。
+
+入力例1
+5 5
+
+出力例1
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+   
+   fscanf(STDIN, "%d %d", $a, $b);
+   
+   for($i = 1; $i <= $b; $i++) {
+       
+       for($j = 1;$j <= $a; $j++) {
+           
+           if($j == $a) {
+               print($j . "\n");
+           } else {
+               print($j . " ");
+           }
+       }
+       
+   }
+?>
+
+
+
+
+■指定された行数の数字の出力
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_column
+
+入力例1
+5
+
+出力例1
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+   $num = fgets(STDIN);
+   
+   for($i = 0; $i < $num; $i++) {
+       for($j = 1; $j <= 5; $j++) {
+           
+           if($j == 5) {
+               print($j . "\n");
+           } else {
+               print($j . " ");
+           }
+       }
+   }
+   
+?>
+
+
+■指定された数字までの出力
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_num_new
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    $num = fgets(STDIN);
+    
+    $idx = 1;
+    while($idx <= $num) {
+        if($idx == $num) {
+            print($idx);
+        } else {
+            print($idx . "\n");
+        }
+        $idx++;
+    }
+?>
+
+
+---
+■文字列を切り取る
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    [$a, $b] = explode(' ', trim(fgets(STDIN)));
+    $s = trim(fgets(STDIN));
+
+    echo mb_substr($s, $a - 1, $b - $a + 1) . "\n";
+?>
+
+---
+
+https://paiza.jp/works/mondai/prob60/substring_4
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    fscanf(STDIN, "%d %D", $a, $b);
+    
+    for($i = $a; $i <= $b; $i++) {
+        print($i . "\n");
+    }
+?>
+
+---
+
+https://paiza.jp/works/mondai/prob60/total_value_9
+■コード
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    $num = fgets(STDIN);
+    
+    $arr = [];
+    $arr_02 = [];
+    $idx = 0;
+    for($i = 0; $i < $num; $i++) {
+        fscanf(STDIN, "%d %d", $a, $b);
+        $arr[$i] = $a;
+        $arr_02[$i] = $b;
+    }
+    
+    $j = 0;
+    $result = 0;
+    while($num > $j) {
+        if($arr[$j] == $arr_02[$j]) {
+            $result += $arr[$j] * $arr_02[$j];
+        } else {
+            $result += $arr[$j] + $arr_02[$j];
+        }
+        
+        $j++;
+    }
+    print($result);
+?>
+
+https://paiza.jp/works/mondai/prob60/5_or_more_9
+
+■コード
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    
+    $arr = [4, 0, 5, -1, 3, 10, 6, -8];
+    
+    $arr_result = [];
+    
+    $i = 0;
+    foreach($arr as $a) {
+        if($a >= 5) {
+            $arr_result[$i] = $a; 
+        }    
+        $i++; 
+    }
+       
+// array_sum => 配列の合計値
+    print(array_sum($arr_result));
+    
+?>
