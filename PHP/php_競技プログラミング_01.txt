@@ -1,3 +1,5 @@
+■ ========= PHP 競技プログラミング =========
+
 trim(fgets(STDIN));
 
 fscanf(STDIN,"%d %d",$a,$b);
@@ -7,6 +9,111 @@ fscanf(STDIN,"%d %d",$a,$b);
 ---
 
 「二重ループメニュー」
+
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__stairs
+
+入力例2
+5
+
+出力例2
+1
+
+1 2
+
+1 2 3
+
+1 2 3 4
+
+1 2 3 4 5
+
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    $h = fgets(STDIN);
+    
+    $arr_sum = [];
+    for($i = 1; $i <= $h; $i++) {
+        for($j = 1; $j <= $i;$j++) {
+            
+            // ========　横軸の最後尾の値になったら 改行
+            if($j == $i) {
+                 print($j . "\n");
+            } else {
+                print($j . " ");   
+            }
+            
+        }
+    }
+    
+    
+?>
+
+
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__various_row_sum
+
+入力例2
+
+10
+12 17 11 44 41 18 12 70 82 72 19 20 97
+8 22 36 93 80 28 59 96 57
+10 90 27 95 66 57 48 86 43 81 31
+13 22 2 52 51 41 28 83 71 52 10 78 9 19
+14 11 96 37 0 50 65 3 4 81 64 47 32 46 53
+5 73 22 40 29 69
+1 35
+3 32 4 41
+1 73
+1 46
+
+出力例2
+
+503
+
+471
+
+624
+
+518
+
+589
+
+233
+
+35
+
+77
+
+73
+
+46
+
+
+<?php
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+   fscanf(STDIN, "%d", $h);
+   
+   for($i = 0; $i < $h; $i++) {
+       $arr[] = explode(' ',fgets(STDIN));
+   }
+   
+   $arr_sum = [];
+   for($i = 0; $i < $h; $i++) {
+       // === count($arr[$i]) で、横の配列の長さを取得
+       for($j = 1; $j < count($arr[$i]); $j++) {
+           $arr_sum[$i] += $arr[$i][$j];
+       }
+   }
+   
+   foreach($arr_sum as $a) {
+       print($a . "\n");
+   }
+   
+?>
+
 
 
 ■ 二次元配列の行ごとの和

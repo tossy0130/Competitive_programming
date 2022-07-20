@@ -1,0 +1,275 @@
+■ ========= Python 競技プログラミング =========
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_condition_step3
+
+整数 n と、数列 a_1, ... , a_n と、整数 k が与えられます。
+数列に含まれる値で、k 以下であるもののうち、値が最大のものを出力してください。
+なお、k 以下である値が必ず数列に含まれていることが保証されています。
+
+入力例1
+5-5 11 3 -9 0-4
+
+出力例1
+-5
+
+
+<<<  解答 コード  >>>
+
+n = int(input())
+a = [int(x) for x in input().split()]
+k = int(input())
+
+answer = -101
+for val in a:
+    if val <= k:
+        answer = max(answer, val)
+
+print(answer)
+
+--------------------------------------------
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_condition_step2
+
+整数 n と、数列 a_1, ... , a_n と、整数 k が与えられます。
+数列に含まれる値で、k 以上であるもののうち、値が最小のものを出力してください。
+なお、k 以上である値が必ず数列に含まれていることが保証されています。
+
+入力例1
+5-5 11 3 -9 0-4
+
+出力例1
+0
+
+
+a_num = int(input())
+a_list = [int(x) for x in input().split()]
+b_num = int(input())
+
+ans_list = []
+for i in range(a_num):
+    if a_list[i] > b_num :
+        tmp = a_list[i]
+        ans_list.append(tmp)
+        
+print(min(ans_list))
+
+--------------------------------------------
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_value_step0
+
+入力例1
+5
+-3  2  0  -1  2
+2
+
+n = int(input()) # １行目取得
+arr_a = list(map(int, input().split())) # ２行目取得
+c = int(input()) # ３行目
+
+a_sum = 0 # 合計格納
+
+for i in range(n):
+    if c == arr_a[i]:
+        a_sum += 1
+    else:
+        pass
+    
+print(a_sum)]
+
+---------------------------------------------
+
+■　指定された値の位置 1 (paizaランク D 相当)
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_value_step1
+
+入力例1
+5-3 2 0 -1 22
+
+出力例1
+2
+
+
+a = int(input())
+arr_list = list(map(int, input().split()))
+b = int(input())
+
+s = 0
+for i in range(a):
+    if arr_list[i] == b:
+        s = i + 1
+        break
+
+print(s)
+
+----------------------------------------------
+
+■ 指定された値の位置 2 (paizaランク D 相当)
+
+入力例1
+
+5-3 2 0 -1 22
+
+出力例1
+
+5
+
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_value_step2
+
+a = int(input())
+a_arr = [int(x) for x in input().split()]
+target = int(input())
+
+sum_a = 0
+for i in range(a -1, -1, -1):
+    if a_arr[i] == target:
+       sum_a = i + 1
+       break
+        
+print(sum_a)
+
+----------------------------------------------
+
+■　指定された値の位置 1 (paizaランク D 相当)
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_value_step1
+
+入力例1
+5-3 2 0 -1 22
+
+出力例1
+2
+
+
+a = int(input())
+arr_list = list(map(int, input().split()))
+b = int(input())
+
+s = 0
+for i in range(a):
+    if arr_list[i] == b:
+        s = i + 1
+        break
+
+print(s)
+
+----------------------------------------------
+
+■ 指定された値の位置 2 (paizaランク D 相当)
+
+入力例1
+
+5-3 2 0 -1 22
+
+出力例1
+
+5
+
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_value_step2
+
+a = int(input())
+a_arr = [int(x) for x in input().split()]
+target = int(input())
+
+sum_a = 0
+for i in range(a -1, -1, -1):
+    if a_arr[i] == target:
+       sum_a = i + 1
+       break
+        
+print(sum_a)
+
+----------------------------------------------
+
+【指定された値の探索】指定された値の位置 3 (paizaランク D 相当)
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_value_boss
+
+入力例1
+5 -3 2 0 -1 22
+
+出力例1
+25
+
+
+・コード
+a = int(input())
+b_arr = [int(x) for x in input().split()]
+c_target = int(input())
+
+sum_arr = []
+for i in range(a):
+    if b_arr[i] == c_target:
+        tmp = i + 1
+        sum_arr.append(tmp)
+        
+for t in sum_arr:
+    print(t)
+
+----------------------------------------------
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_minmax_step0
+
+入力例1
+-11 10
+
+出力例1
+10 -11
+
+
+### 値取得　-11 10
+a_list = [int(x) for x in input().split()]
+
+a_max = max(a_list)
+a_min = min(a_list)
+
+### f string で出力
+print(f'{a_max} {a_min}')
+
+----------------------------------------------
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_condition_step0
+
+入力例1
+51 3 5 6 8
+
+出力例1
+4
+
+
+a = int(input())
+a_list = [int(x) for x in input().split()]
+
+b = 0
+######## 最初の偶数でループを止める
+for i in range(a):
+    if a_list[i] % 2 == 0:
+        b = i + 1
+        break
+        
+print(b)
+
+----------------------------------------------
+
+https://paiza.jp/works/mondai/sequence_search_problems/sequence_search_problems_search_condition_step1
+
+入力例1
+51 3 5 6 8
+
+出力例1
+3
+
+
+# coding: utf-8
+# 自分の得意な言語で
+# Let's チャレンジ！！
+a = int(input())
+a_list = [int(x) for x in input().split()]
+
+a_int = 0
+############## 配列の末尾から、奇数のindex でbreak
+for i in range(a - 1, -1, -1):
+    if a_list[i] % 3 == 0:
+        a_int = i
+        break
+    
+print(a_int)
