@@ -1,0 +1,617 @@
+■ ========= Java 競技プログラミング ==========
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_map
+
+入力例1
+3 4
+92 15 49 19
+20 89 92 47
+0 87 42 45
+
+出力例1
+92 15 49 19
+
+20 89 92 47
+
+0 87 42 45
+
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        
+// =========== 値取得エリア
+        ArrayList<Integer> item = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < K; j++) {
+                item.add(sc.nextInt());
+            }
+        }
+        
+// =========== 出力エリア
+        int loop = 1;
+        for (Integer ii : item) {
+            if(loop == K) {
+                System.out.println(ii);
+                loop = 1;
+                continue;
+            } else {
+                System.out.print(ii + " ");
+            }
+            loop++;
+            
+        }
+        
+    }
+}
+
+---
+
+https://paiza.jp/works/mondai/prob60/total_value_1
+
+整数 n が1行目、続く行で n 個の文字列が与えられるので、n 個の文字列をそのまま出力してください。
+
+入力例1
+3 
+AB 
+CD 
+EF
+
+出力例1
+AB
+
+CD
+
+EF
+
+
+import java.util.*;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        //=== リスト宣言
+        ArrayList<String> list = new ArrayList<>();
+        
+        //=== リストへ追加
+        for (int i = 0; i < n; i++) {
+            list.add(sc.next());
+        }
+        
+        //=== リスト出力 拡張for 文 
+        /*
+        for (String s : list) {
+            System.out.println(s);
+        }
+        */
+        
+        //=== foreach 文  list のforeach 
+        list.forEach(s -> System.out.println(s)); // forEachメソッド
+        
+        //=== foreach ループカウンタ付き 
+        /*
+        int[] i = { 0 };
+        list.forEach(s -> {
+            System.out.println(i[0] + " : " + s);
+            i[0]++;
+        });
+        */
+        
+    }
+}
+
+---
+
+・文字列の分割
+
+入力例1
+Hello World
+
+出力例1
+Hello
+
+World
+
+
+https://paiza.jp/works/mondai/prob60/total_value_2
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        // リスト定義
+        ArrayList<String> t_list = new ArrayList<>();
+        
+        // 要素取得 hasNext
+        while(sc.hasNext()) {
+            t_list.add(sc.next());   
+        }
+        
+        // forEach で出力
+        t_list.forEach(s-> System.out.println(s));
+        
+    }
+}
+
+---
+
+
+指定された範囲・行数の数字の出力 
+
+
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_range
+
+入力例1
+5 5
+
+出力例1
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        
+        for (int i = 1; i <= K; i++) {
+            for (int j = 1; j <= N; j++) {
+                if(j == N) {
+                    System.out.println(j);
+                } else {
+                    System.out.print(j + " ");
+                }
+            }
+        }
+        
+    }
+}
+
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__search
+
+入力例1
+4 3
+0 0 
+0 0 
+0 0 
+0 0 
+1 0 
+0 0
+
+出力例1
+3 3
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+
+/**
+4 3
+0 0 0
+0 0 0
+0 0 1
+0 0 0
+*/
+
+int N = sc.nextInt(); // 行
+int K = sc.nextInt(); // 列
+
+int [][] arr_i = new int[N][K];
+
+// ========= ２次元配列へ格納 ===========
+for (int i = 0; i < N; i++) {
+    for (int j = 0; j < K; j++) {
+    arr_i[i][j] = sc.nextInt();
+    }
+}
+  
+int ans_n = 1;
+int ans_k = 1;
+for (int i = 0; i < N; i++) {
+    for (int j = 0; j < K; j++) {
+        if(arr_i[i][j] == 1) {
+            System.out.print((i + ans_n)  + " " + (j + ans_k));
+        }
+    }
+}
+
+
+
+        
+    }
+}
+
+-------------------------------------------
+
+入力例1
+2 6
+this is a pen
+
+出力例1
+his i
+
+
+コード
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        String str = sc.nextLine();
+        String t = sc.nextLine();
+        
+        String [] arr = str.split(" ");   // 空白行で分割 ::: split
+        int a = Integer.parseInt(arr[0]); / / string => int キャスト ::: Integer.ParseInt
+        int b = Integer.parseInt(arr[1]);
+        
+        String ans = t.substring(a - 1, b); // substring() 文字列切り出し
+        
+        System.out.println(ans);
+        
+    }
+}
+
+--------------------------------------------
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+       
+       int target = 57;
+       boolean C_flg = true;
+       
+       // === 素数判定 *** 「整数 N が素数である」とは「N が 2 以上で、かつ N の約数が 1 と N のみしか存在しない」
+       // 割り切れたら　素数ではない
+       for (int i = 2; i <= target; i++) {
+            if(target % i == 0) {
+                C_flg = false;
+            }
+       }
+       
+       if (C_flg) {
+           System.out.println("OK");
+       } else {
+           System.out.println("NO");
+       }
+       
+       
+    }
+}
+
+-----------------------------------------------
+
+入力例1
+2 6
+this is a pen
+
+出力例1
+his i
+
+
+コード
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        String str = sc.nextLine();
+        String t = sc.nextLine();
+        
+        String [] arr = str.split(" ");   // 空白行で分割 ::: split
+        int a = Integer.parseInt(arr[0]); / / string => int キャスト ::: Integer.ParseInt
+        int b = Integer.parseInt(arr[1]);
+        
+        String ans = t.substring(a - 1, b); // substring() 文字列切り出し
+        
+        System.out.println(ans);
+        
+    }
+}
+
+-----------------------------------------------
+
+入力例1
+2 6
+this is a pen
+
+出力例1
+tHIS Is a pen
+
+入力例2
+2 6
+Welcome to the paiza! I`m studying ruby!
+
+出力例2
+WELCOMe to the paiza! I`m studying ruby!
+
+
+コード
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        String a = sc.nextLine();
+        String str = sc.nextLine();
+        
+        String [] arr = a.split(" ");
+        int i_a = Integer.parseInt(arr[0]);
+        int i_b = Integer.parseInt(arr[1]);
+        String str_tmp = "";
+        String ans = "";
+        
+        
+        for (int i = 0; i < str.length(); i++) {
+            if (i >= i_a - 1 && i <= i_b) {
+              // index i_a <  index i_b  > の間のindex を １文字ずつ str_tmpへ 入れる 
+              str_tmp += String.valueOf(str.charAt(i));
+              // i_a ～ i_b の間の文字列を 大文字へ変換
+              ans = str_tmp.toUpperCase();
+            }
+        }
+        
+        // 文字列　置換
+        String l_ans = str.replace(str_tmp, ans);
+        System.out.println(l_ans);
+        
+    }
+}
+
+
+----------------------------------------------
+
+入力例1
+3075
+
+出力例1
+3075
+
+入力例2
+3809
+
+出力例2
+3809
+
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        // リスト　宣言
+        ArrayList<Integer> get_list = new ArrayList<>();
+        
+        // 1行ずつ　値を取得していく
+        while(sc.hasNext()) {
+            get_list.add(sc.nextInt());
+        }
+        
+        // 出力
+        for(int g : get_list) {
+            System.out.println(g);
+        }
+        
+    }
+}
+
+---------------------------------------------------
+
+■ C088:RPGでお買い物
+
+
+# coding: utf-8
+# 自分の得意な言語で
+# Let's チャレンジ！！
+
+###### 道具の個数
+N = int(input())
+
+###### アイテム一覧取得
+arr_item = []
+arr_item = list(map(int, input().split(' ')))
+
+###### 所持金, 取引回数
+T, Q = map(int, input().split())
+###### 取引履歴取得 １次元配列で取得
+T_arr = []
+Q_arr = []
+for q in range(Q):
+    t_tmp,q_tmp = map(int, input().split())
+    T_arr.append(t_tmp)
+    Q_arr.append(q_tmp)
+    
+arr_ans = []
+    
+for i in range(Q):
+    for item in range(len(arr_item)):
+        if T_arr[i] == item + 1 :
+            tmp = arr_item[item] * Q_arr[i]
+            arr_ans.append(tmp)
+            
+##### 合計金額を求める
+for jj in range(Q):
+    if T > arr_ans[jj]:
+        T -= arr_ans[jj]
+    else:
+       continue
+
+print(T)
+
+---------------------------------------------------
+
+■ C056:テストの採点
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+     
+        int a_range = sc.nextInt();
+        int b = sc.nextInt();
+        
+        int [] arr_i = new int [a_range];
+        
+        int [] arr_ten = new int [a_range];
+        int [] arr_ketu = new int [a_range];
+        
+        for (int i = 0; i < arr_i.length; i++) {
+            arr_ten[i] = sc.nextInt();
+            arr_ketu[i] = sc.nextInt();
+        }
+        
+        // ===== 判定ロジック  arr_ten - arr_ketu * 5 = 「点数」
+        // 「点数」 > b => 「合格点」 のものを出力
+        for(int j = 0; j < arr_ten.length; j++) {
+            if(arr_ten[j] - (arr_ketu[j] * 5) >= b) {
+                System.out.println(j + 1);
+            
+            // b = 「合格点」が 0 の時の処理
+            } else if (arr_ten[j] - (arr_ketu[j] * 5) < 0 && b == 0) {
+                System.out.println(j + 1);
+            }
+        }
+      
+        
+    }
+}
+
+---------------------------------------------------
+
+入力例 1 Copy
+
+	Copy
+```
+101
+
+```
+
+出力例 1 Copy
+
+	Copy
+```
+2
+```
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main { //クラス名はMain
+    public static void main(String[] args) {
+
+//  charAt で　ループして 、特定の文字の値をカウントアップ
+Scanner sc = new Scanner (System.in);
+String a = sc.next();
+int result = 0;
+int no = 0;
+for(int i = 0; i < a.length(); i++) {
+    if(a.charAt(i) == '1') {
+             result  += 1;
+      } else {
+             no += 1;
+      }
+}
+System.out.println(result);
+
+    }
+
+}
+
+-------------------------------------------
+
+https://atcoder.jp/contests/abc155/tasks/abc155_c
+
+import java.util.*;
+public class Main {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+  int loop;
+ loop = sc.nextInt();
+
+String [] arr_s = new String[loop];
+
+for(int i = 0; i < loop; i++) {
+     arr_s[i] = sc.next();
+}
+
+String [] arr_ss = new String[loop];
+
+System.arraycopy(arr_s,0,arr_ss,0,arr_s.length);
+
+ArrayList<String> arr_num = new ArrayList<String>();
+for(int i = 0; i < loop; i++) {
+   if(arr_s[i].equals(arr_ss[i])) {
+           arr_num .add(arr_s[i]);
+      }
+}
+
+for(String a : arr_num) {
+   System.out.print(a);
+    System.out.print("\n");
+}
+
+ }
+}
