@@ -1,5 +1,701 @@
 ■ ========= Java 競技プログラミング ==========
 
+
+○　＝＝＝　レベル C　＝＝＝
+
+■C116:あたり棒の検査
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        
+        int arr[] = new int[N];
+        
+        for(int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        boolean flg = false;
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] == 0 && arr[i + 1] == 0 && arr[i + 2] == 0) {
+                flg = false;
+                break;
+            } else {
+                flg = true;
+            }
+        }
+        
+        if(flg) {
+            System.out.print("OK");
+        } else {
+            System.out.print("NG");
+        }
+        
+    }
+}
+
+
+■ C115:渋滞の距離
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        
+        int [] arr = new int [a - 1];
+        
+        for(int i = 0; i < a - 1; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        int ans = 0;
+        for(Integer k : arr) {
+           if(k <= b) {
+              // System.out.println(k);
+               ans += k;
+           } 
+        }
+        
+        System.out.println(ans);
+        
+    }
+}
+
+■C052:ゲームの画面
+
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        int [] arr_01 = new int [2];
+        int [] arr_02 = new int [2];
+        
+        // === 値取得
+        for(int i = 0; i < 2; i++) {
+            arr_01[i] = sc.nextInt();
+        }
+        for(int i = 0; i < 2; i++) {
+            arr_02[i] = sc.nextInt();
+        }
+        
+        
+        int ans = 0;
+        
+        int temp01 = arr_01[0] * arr_02[1];
+        int temp02 = arr_01[1] * arr_02[0];
+        int temp03 = arr_02[0] * arr_02[1];
+        
+        temp01 = Math.abs(temp01);
+        temp02 = Math.abs(temp02);
+        temp03 = Math.abs(temp03);
+        
+        /* 
+        System.out.println(temp01);
+        System.out.println(temp02);
+        System.out.println(temp03);
+        */
+        
+        int t = temp01 + temp02;
+     //   System.out.println(t);
+        
+        ans = t - temp03;
+        
+        // === 判定ロジック ===
+        /*
+        for(int i = 0; i < 2; i++) {
+            if(i == 2 - i){
+                break;
+            }
+            ans = (arr_01[i] * arr_02[i + 1]) + (arr_01[i + 1] * arr_02[i]) - (arr_02[i] * arr_02[i + 1]); 
+        }
+        */
+        
+        System.out.println(ans);
+      
+        
+    }
+}
+
+■ C030:白にするか黒にするか
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        int h = sc.nextInt();
+        int w = sc.nextInt();
+        
+	// ＝＝＝　２次元配列初期化
+        int [][] arr = new int[h][w];
+        
+	// ＝＝＝　値取得
+        for(int i = 0; i < h; i++) {
+             for(int j = 0; j < w; j++) {
+            arr[i][j] = sc.nextInt();
+             }
+        }
+        
+	// ＝＝＝　判定ロジック
+         for(int i = 0; i < h; i++) {
+             for(int j = 0; j < w; j++) {
+                if(arr[i][j] >= 128) {
+                    arr[i][j] = 1;
+                } else {
+                    arr[i][j] = 0;
+                }
+             }
+        }
+        
+	// ＝＝＝　値出力部分
+         for(int i = 0; i < h; i++) {
+             for(int j = 0; j < w; j++) {
+                if(j == w - 1) {
+                    System.out.print(arr[i][j] + "\n"); 
+                } else {
+                     System.out.print(arr[i][j] + " "); 
+                }
+               
+             }
+         }
+        
+        
+        
+    }
+}
+
+
+■ C114:しりとりの判定
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        String[] arr = new String[num];
+        
+        for(int i = 0; i < num; i++) {
+            arr[i] = sc.next();    
+        } 
+        
+        boolean flg = false;
+        String a;
+        String b;
+        
+        // ========== 判定ロジック　部分
+        for(int i = 0; i < num; i++) {
+             if(i == num - 1) {
+                    break;
+                }
+                
+            if(arr[i].charAt(arr[i].length()-1) == arr[i + 1].charAt(0)) {
+                flg = true;
+            } else {
+                System.out.println(arr[i].charAt(arr[i].length()-1) + " " + arr[i + 1].charAt(0));
+                flg = false;
+                break;
+            }
+        }
+        
+        // === 出力部分
+        if(flg) {
+            System.out.println("Yes");
+        }
+        
+     
+    }
+}
+
+
+---
+
+■ C088:RPGでお買い物 python
+
+
+# coding: utf-8
+# 自分の得意な言語で
+# Let's チャレンジ！！
+
+###### 道具の個数
+N = int(input())
+
+###### アイテム一覧取得
+arr_item = []
+arr_item = list(map(int, input().split(' ')))
+
+###### 所持金, 取引回数
+T, Q = map(int, input().split())
+###### 取引履歴取得 １次元配列で取得
+T_arr = []
+Q_arr = []
+for q in range(Q):
+    t_tmp,q_tmp = map(int, input().split())
+    T_arr.append(t_tmp)
+    Q_arr.append(q_tmp)
+    
+arr_ans = []
+    
+for i in range(Q):
+    for item in range(len(arr_item)):
+        if T_arr[i] == item + 1 :
+            tmp = arr_item[item] * Q_arr[i]
+            arr_ans.append(tmp)
+            
+##### 合計金額を求める
+for jj in range(Q):
+    if T > arr_ans[jj]:
+        T -= arr_ans[jj]
+    else:
+       continue
+
+print(T)
+
+---
+
+■ C056:テストの採点
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+     
+        int a_range = sc.nextInt();
+        int b = sc.nextInt();
+        
+        int [] arr_i = new int [a_range];
+        
+        int [] arr_ten = new int [a_range];
+        int [] arr_ketu = new int [a_range];
+        
+        for (int i = 0; i < arr_i.length; i++) {
+            arr_ten[i] = sc.nextInt();
+            arr_ketu[i] = sc.nextInt();
+        }
+        
+        // ===== 判定ロジック  arr_ten - arr_ketu * 5 = 「点数」
+        // 「点数」 > b => 「合格点」 のものを出力
+        for(int j = 0; j < arr_ten.length; j++) {
+            if(arr_ten[j] - (arr_ketu[j] * 5) >= b) {
+                System.out.println(j + 1);
+            
+            // b = 「合格点」が 0 の時の処理
+            } else if (arr_ten[j] - (arr_ketu[j] * 5) < 0 && b == 0) {
+                System.out.println(j + 1);
+            }
+        }
+      
+        
+    }
+}
+
+---
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main { //クラス名はMain
+    public static void main(String[] args) {
+      
+	Scanner sc = new Scanner (System.in);
+
+    }
+}
+
+
+---
+■ B - Break Number
+
+https://atcoder.jp/contests/abc068/tasks/abc068_b
+
+
+入力例 4 Copy
+
+	Copy
+```
+100
+
+```
+
+出力例 4 Copy
+
+	Copy
+```
+64
+```
+
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main { //クラス名はMain
+    public static void main(String[] args) {
+      
+	Scanner sc = new Scanner (System.in);
+    
+    // 値取得
+    int num = sc.nextInt();  
+    sc.close();
+      
+    int ans = 1;
+      
+    while(ans <= num) {
+       ans *= 2;
+     }
+     
+     System.out.println(ans / 2);
+    
+   }
+}
+
+
+■charAt で　ループして 、特定の文字の値をカウントアップ
+
+https://atcoder.jp/contests/abc081/tasks/abc081_a
+
+
+入力例 1 Copy
+
+	Copy
+```
+101
+
+```
+
+出力例 1 Copy
+
+	Copy
+```
+2
+```
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main { //クラス名はMain
+    public static void main(String[] args) {
+
+//  charAt で　ループして 、特定の文字の値をカウントアップ
+Scanner sc = new Scanner (System.in);
+String a = sc.next();
+int result = 0;
+int no = 0;
+for(int i = 0; i < a.length(); i++) {
+    if(a.charAt(i) == '1') {
+             result  += 1;
+      } else {
+             no += 1;
+      }
+}
+System.out.println(result);
+
+    }
+
+}
+
+---
+グロタンディーク素数 (paizaランク D 相当)
+https://paiza.jp/works/mondai/prime_number_primer/prime_number_primer__grothendieck
+
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+       
+       int target = 57;
+       boolean C_flg = true;
+       
+       // === 素数判定 *** 「整数 N が素数である」とは「N が 2 以上で、かつ N の約数が 1 と N のみしか存在しない」
+       // 割り切れたら　素数ではない
+       for (int i = 2; i <= target; i++) {
+            if(target % i == 0) {
+                C_flg = false;
+            }
+       }
+       
+       if (C_flg) {
+           System.out.println("OK");
+       } else {
+           System.out.println("NO");
+       }
+       
+       
+    }
+}
+
+---
+Bランクレベルアップメニュー（言語選択）
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_map
+
+入力例1
+3 4
+92 15 49 19
+20 89 92 47
+0 87 42 45
+
+出力例1
+92 15 49 19
+
+20 89 92 47
+
+0 87 42 45
+
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        
+// =========== 値取得エリア
+        ArrayList<Integer> item = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < K; j++) {
+                item.add(sc.nextInt());
+            }
+        }
+        
+// =========== 出力エリア
+        int loop = 1;
+        for (Integer ii : item) {
+            if(loop == K) {
+                System.out.println(ii);
+                loop = 1;
+                continue;
+            } else {
+                System.out.print(ii + " ");
+            }
+            loop++;
+            
+        }
+        
+    }
+}
+
+---
+
+https://paiza.jp/works/mondai/prob60/total_value_1
+
+整数 n が1行目、続く行で n 個の文字列が与えられるので、n 個の文字列をそのまま出力してください。
+
+入力例1
+3 
+AB 
+CD 
+EF
+
+出力例1
+AB
+
+CD
+
+EF
+
+
+import java.util.*;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        //=== リスト宣言
+        ArrayList<String> list = new ArrayList<>();
+        
+        //=== リストへ追加
+        for (int i = 0; i < n; i++) {
+            list.add(sc.next());
+        }
+        
+        //=== リスト出力 拡張for 文 
+        /*
+        for (String s : list) {
+            System.out.println(s);
+        }
+        */
+        
+        //=== foreach 文  list のforeach 
+        list.forEach(s -> System.out.println(s)); // forEachメソッド
+        
+        //=== foreach ループカウンタ付き 
+        /*
+        int[] i = { 0 };
+        list.forEach(s -> {
+            System.out.println(i[0] + " : " + s);
+            i[0]++;
+        });
+        */
+        
+    }
+}
+
+---
+
+・文字列の分割
+
+入力例1
+Hello World
+
+出力例1
+Hello
+
+World
+
+
+https://paiza.jp/works/mondai/prob60/total_value_2
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        // リスト定義
+        ArrayList<String> t_list = new ArrayList<>();
+        
+        // 要素取得 hasNext
+        while(sc.hasNext()) {
+            t_list.add(sc.next());   
+        }
+        
+        // forEach で出力
+        t_list.forEach(s-> System.out.println(s));
+        
+    }
+}
+
+---
+
+
+指定された範囲・行数の数字の出力 
+
+
+
+https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_range
+
+入力例1
+5 5
+
+出力例1
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+1 2 3 4 5
+
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        int N = sc.nextInt();
+        int K = sc.nextInt();
+        
+        for (int i = 1; i <= K; i++) {
+            for (int j = 1; j <= N; j++) {
+                if(j == N) {
+                    System.out.println(j);
+                } else {
+                    System.out.print(j + " ");
+                }
+            }
+        }
+        
+    }
+}
+
+
+---
+
+素数判定
+
+
+https://paiza.jp/works/mondai/prime_number_primer/prime_number_primer__is_prime_easy
+
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        // 自分の得意な言語で
+        // Let's チャレンジ！！
+        Scanner sc = new Scanner(System.in);
+        
+        boolean ans_Flg = true;
+        
+        int N = sc.nextInt();
+        for(int i = 2; i < N; i++) {
+            if (N % i == 0) {
+                ans_Flg = false;
+            }
+        }
+        
+        if(ans_Flg == true && N != 1) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+        
+    }
+}
+
 https://paiza.jp/works/mondai/double_roop_problems/double_roop_problems__print_map
 
 入力例1
