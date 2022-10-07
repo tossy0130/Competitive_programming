@@ -1,0 +1,151 @@
+2022_10_05
+
+・バーコード js
+
+・C# 競プロ
+
+・オレオレ証明書　作成 シェルスクリプト
+
+---------------------------------------
+
+
+● ＊＊＊ 値受け取り ＊＊＊
+
+// 文字列の入力
+string s = Console.ReadLine();
+
+// 整数の入力
+var n = int.Parse(Console.ReadLine());
+
+long n = long.Parse(Console.ReadLine());
+
+// 整数　１行　複数
+var input = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+
+// 文字列配列の入力
+string[] inputStrArray = Console.ReadLine().Split(' ');
+
+// 整数配列の入力
+long[] inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+int[] array = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+//1文字ずつ読み込む
+ char[] b = Console.ReadLine().ToCharArray();
+
+//=== 整数で読込　===
+
+//整数配列で読み込みたいとき
+ int[] c = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+
+ //stringをintに変える場合
+ string[] input = Console.ReadLine().Split(' ');
+ int d = int.Parse(input[0]);
+
+//=== ２次元配列で読み込み
+
+//2次元配列で読み込みたい場合
+ int[,] X = new int[2, 2];//今回は2x2の行列で考える
+           
+ for (int i = 0; i < 2; i++)
+ {
+   int[] gyou= Console.ReadLine().Split(' ').Select(int.Parse).ToArray();//行の読み込み
+   for (int j = 0; j < 2; j++)
+   {
+       X[i, j] = gyou[j];//列への割り当て
+   }
+ }
+
+---
+
+■文字列　比較    Equals
+
+       string str = Console.ReadLine();
+       
+       if(str.Equals("paiza")) {
+           Console.WriteLine("YES");
+       } else {
+           Console.WriteLine("NO");
+       }
+
+---
+■ 整数　if 
+
+入力例1
+2 3 7
+
+var n = int.Parse(Console.ReadLine());
+       　
+       　if(n > 100) {
+       　     Console.WriteLine("NO");
+       　} else {
+       　    Console.WriteLine("YES");
+       　}
+
+ーーーーーーー
+
+// === 2 3 7  を　整数で取得
+    var input_arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+    
+    var kei = 0;
+    kei = input_arr[0] * input_arr[1];
+    
+    if(kei < input_arr[2]) {
+        Console.WriteLine("YES");
+    } else {
+        Console.WriteLine("NO");
+    }
+    
+    }
+
+ーーーーーーーーーーーーーー
+
+　// === int で 値取得
+       var num = int.Parse(Console.ReadLine());
+       // === 0だった NO , 0 以外なら YES
+       if(num == 0) {
+           Console.WriteLine("NO");
+       } else {
+           Console.WriteLine("YES");
+       }
+       
+   
+---
+
+●配列の初期化
+
+// 配列を生成する
+var array = new int[] {0, 2, 4, 6};
+
+// [0,1...] の配列を生成する
+var array = Enumerable.Range(0, 5).ToArray(); // {0, 1, 2, 3, 4}
+
+// 初期値が全て同じ配列を生成する
+var array = Enumerable.Repeat(-1, 5).ToArray(); // { -1, -1, -1, -1, -1}
+
+---
+
+● if
+
+var s = Console.ReadLine();
+
+if (int.TryParse(s, out var result))
+{
+       Console.WriteLine(result);
+ }
+else
+{
+       Console.WriteLine("整数に変換できません");
+}
+
+---
+● for 
+
+int n = int.Parse(Console.ReadLine());
+ int sum = 0;
+for (int i = 0; i < n - 1; i++)
+ {
+                int value = int.Parse(Console.ReadLine());
+                sum = sum + value;
+                Console.WriteLine($"sum={sum}");
+ }
+
