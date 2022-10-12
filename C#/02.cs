@@ -1,5 +1,9 @@
 using System;
 
+// リストを使う
+using System.Collections.Generic;
+
+
 class Program
 {   
 
@@ -129,10 +133,39 @@ class Program
         -3 2 0 -1 2
         2
 
-        出力例1
+       出力例1
         2
-     
+        5
     */
+    public void linear_exploration_04(int loop_num,  string[] inputs, int target) {
+        
+        int[] arr = new int [loop_num];
+
+        //=== string -> int へ パース
+        for(int i = 0; i < loop_num; i++) {
+            arr[i] = int.Parse(inputs[i]);
+        }
+
+
+        // int型を格納するリストを宣言
+        var ans_list = new List<int>();
+        for(int i = 0; i < loop_num; i++) {
+            if(arr[i] == target) {
+                // === リストへ 整数を追加
+                ans_list.Add(i + 1);
+            }
+        }
+
+        // リストが空ならなにもしない
+        if(ans_list.Count == 0) {
+
+        } else {
+            foreach(var val in ans_list) {
+                Console.WriteLine(val.ToString());
+            }
+        }
+
+    }
 
     static void Main()
     {
