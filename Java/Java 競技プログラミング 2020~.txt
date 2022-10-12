@@ -10,8 +10,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // 自分の得意な言語で
-        // Let's チャレンジ！！
+     
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int M = sc.nextInt();
@@ -46,11 +45,9 @@ public class Main {
 
 import java.util.*;
 
-
 public class Main {
     public static void main(String[] args) {
-        // 自分の得意な言語で
-        // Let's チャレンジ！！
+     
         Scanner sc = new Scanner(System.in);
         
         int a = sc.nextInt();
@@ -79,12 +76,9 @@ public class Main {
 
 
 import java.util.*;
-
-
 public class Main {
     public static void main(String[] args) {
-        // 自分の得意な言語で
-        // Let's チャレンジ！！
+       
         Scanner sc = new Scanner(System.in);
         
         int [] arr_01 = new int [2];
@@ -143,8 +137,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // 自分の得意な言語で
-        // Let's チャレンジ！！
+       
         Scanner sc = new Scanner(System.in);
         
         int h = sc.nextInt();
@@ -193,7 +186,6 @@ public class Main {
 
 import java.util.*;
 
-
 public class Main {
     public static void main(String[] args) {
         // 自分の得意な言語で
@@ -239,10 +231,6 @@ public class Main {
 
 ■ C088:RPGでお買い物 python
 
-
-# coding: utf-8
-# 自分の得意な言語で
-# Let's チャレンジ！！
 
 ###### 道具の個数
 N = int(input())
@@ -433,8 +421,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // 自分の得意な言語で
-        // Let's チャレンジ！！
+       
         Scanner sc = new Scanner(System.in);
        
        int target = 57;
