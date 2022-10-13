@@ -80,6 +80,68 @@ class Program
             
             
     }
+
+    /*
+        偶数が何番目にあるか：
+        
+    入力例1
+    5
+    1 3 5 6 8
+
+    出力例1
+    4
+    */
+    public void Even_search_01(int loop_num, string[] inputs) {
+
+            //=== 配列作成
+            int[] arr = new int[loop_num];
+
+            //=== string => int へパース
+            for(int i = 0; i < loop_num; i++) {
+                arr[i] = int.Parse(inputs[i]);
+            }
+
+            // ====== 偶数判定ロジック
+            int result_num = 0;
+            for(int i = 0; i < loop_num; i++) {
+                if(arr[i] % 2 == 0) {
+                    result_num = i + 1;
+                    break;
+                }
+            }
+
+            Console.WriteLine(result_num);
+    }
+
+    /*
+        奇数の最後の index を出力
+
+        入力例1
+        5
+        1 3 5 6 8
+
+        出力例1
+        3
+    */
+      public void Odd_search_02(int loop_num, string[] inputs) {
+
+        int[] arr = new int[loop_num];
+
+        //=== string => int 変換
+        for(int i = 0; i < loop_num; i++) {
+            arr[i] = int.Parse(inputs[i]);
+        }
+
+        int result_num = 0;
+        //=== 期数ロジック部分 ===== 最後に現れる奇数
+        for(int i = 0; i < loop_num; i++) {
+            if(arr[i] % 2 != 0 && arr[i] != 1) {
+                result_num = i + 1;
+            }
+        }
+
+        Console.WriteLine(result_num);
+    }
     
     static void Main()
     {
@@ -106,6 +168,21 @@ class Program
         Program obj_3 = new Program();
         obj_3.Max_and_Min_03(num, inputs_03);
         // ========================== END ================================================
-        
+
+        //========== Odd_search_01 実行 start ===========
+        int num = int.Parse(Console.ReadLine());
+        string [] arr = Console.ReadLine().Split(' ');
+
+        Program obj_4 = new Program();
+        obj_4.Even_search_01(num, arr);
+         //========== Odd_search_01 実行 END ===========
+
+        //========== Odd_search_02 start ================
+        int num_5 = int.Parse(Console.ReadLine());
+        string[] arr = Console.ReadLine().Split(' ');
+
+         Program obj_5 = new Program();
+         obj_5.Odd_search_02(num_5, arr);
+         //========== Odd_search_02 END ================
     }
 }
