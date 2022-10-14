@@ -1,9 +1,7 @@
 using System;
-
 using System.Collections.Generic;
 //　MAX, MIN
 using System.Linq;
-
 
 class Program
 {
